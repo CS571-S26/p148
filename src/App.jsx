@@ -3,118 +3,52 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Checkout from './Checkout'
+import Trainers from './Trainers'
+import { BrowserRouter, Route, Routes, NavLink } from 'react-router';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <BrowserRouter>
+      <nav className="flex items-center justify-center gap-6 p-6 bg-gray-100">
+        <NavLink to="/p148">Home</NavLink>
+        <NavLink 
+          to="/p148/checkout" 
+          className={({ isActive }) => isActive ? "active-link" : ""}>
+          Go to Checkout
+        </NavLink>
+        
+        <NavLink 
+          to="/p148/trainers" 
+          className={({ isActive }) => isActive ? "active-link" : ""}>
+          Meet our Trainers
+        </NavLink>
+      </nav>
+      <Routes>
+        <Route
+          path="/p148"
+          element={
+            <main className="px-6 py-10 space-y-10">
+              <h1 className="text-4xl font-bold text-center">
+                Welcome to Fitness Monger
+              </h1>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+              <section className="max-w-5xl mx-auto">
+                <h2 className="text-2xl font-semibold">About Us</h2>
+                <p className="text-muted-foreground mt-2">
+                  Fitness Monger helps people build strength, improve endurance,
+                  and stay consistent with their fitness goals.
+                </p>
+              </section>
+            </main>
+          }
+        />
+        <Route path="/p148/checkout" element={<Checkout />} />
+        <Route path="/p148/trainers" element={<Trainers />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
