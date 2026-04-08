@@ -40,7 +40,7 @@ export default function Checkout() {
                                 </FieldLabel>
                                 <Input
                                     id="checkout-7j9-card-name-43j"
-                                    placeholder="Evil Rabbit"
+                                    placeholder="Enter your name here"
                                     required
                                 />
                             </Field>
@@ -106,7 +106,7 @@ export default function Checkout() {
                                 </Field>
                                 <Field>
                                     <FieldLabel htmlFor="checkout-7j9-cvv">CVV</FieldLabel>
-                                    <Input id="checkout-7j9-cvv" placeholder="123" required />
+                                    <Input id="checkout-7j9-cvv" placeholder="000" required />
                                 </Field>
                             </div>
                         </FieldGroup>
