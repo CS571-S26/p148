@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -21,6 +22,15 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 
 export default function Checkout() {
+    const [name, setName] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [cvv, setCvv] = useState("");
+
+    const isFormValid =
+        name.trim() !== "" &&
+        cardNumber.trim() !== "" &&
+        cvv.trim() !== "";
+
     const handleSubmit = () => {
         alert("Purchase successful! Thank you for your order.");
     };
@@ -41,6 +51,8 @@ export default function Checkout() {
                                 <Input
                                     id="checkout-7j9-card-name-43j"
                                     placeholder="Enter your name here"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                     required
                                 />
                             </Field>
@@ -51,6 +63,8 @@ export default function Checkout() {
                                 <Input
                                     id="checkout-7j9-card-number-uw1"
                                     placeholder="1234 5678 9012 3456"
+                                    value={cardNumber}
+                                    onChange={(e) => setCardNumber(e.target.value)}
                                     required
                                 />
                                 <FieldDescription>
@@ -106,7 +120,12 @@ export default function Checkout() {
                                 </Field>
                                 <Field>
                                     <FieldLabel htmlFor="checkout-7j9-cvv">CVV</FieldLabel>
-                                    <Input id="checkout-7j9-cvv" placeholder="000" required />
+                                    <Input id="checkout-7j9-cvv" 
+                                        placeholder="000" 
+                                        required 
+                                        value={cvv}
+                                        onChange={(e) => setCvv(e.target.value)}
+                                    />
                                 </Field>
                             </div>
                         </FieldGroup>
@@ -147,7 +166,7 @@ export default function Checkout() {
                         </FieldGroup>
                     </FieldSet>
                     <Field orientation="horizontal">
-                        <Button type="submit" onClick={handleSubmit}>
+                        <Button type="submit" onClick={handleSubmit} disabled={!isFormValid}>
                             Submit
                         </Button>
                         <Button variant="outline" type="button">
