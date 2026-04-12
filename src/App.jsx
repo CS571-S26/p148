@@ -5,30 +5,30 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Checkout from './Checkout'
 import Trainers from './Trainers'
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Routes, NavLink } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <nav className="flex items-center justify-center gap-6 p-6 bg-gray-100">
-        <NavLink to="/p148">Home</NavLink>
-        <NavLink 
-          to="/p148/checkout" 
+        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/checkout"
           className={({ isActive }) => isActive ? "active-link" : ""}>
           Go to Checkout
         </NavLink>
-        
-        <NavLink 
-          to="/p148/trainers" 
+
+        <NavLink
+          to="/trainers"
           className={({ isActive }) => isActive ? "active-link" : ""}>
           Meet our Trainers
         </NavLink>
       </nav>
       <Routes>
         <Route
-          path="/p148"
+          path="/"
           element={
             <main className="px-6 py-10 space-y-10">
               <h1 className="text-4xl font-bold text-center">
@@ -45,10 +45,10 @@ function App() {
             </main>
           }
         />
-        <Route path="/p148/checkout" element={<Checkout />} />
-        <Route path="/p148/trainers" element={<Trainers />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/trainers" element={<Trainers />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
