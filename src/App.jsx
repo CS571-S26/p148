@@ -5,7 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Checkout from './Checkout'
 import Trainers from './Trainers'
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router';
+import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
