@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -22,6 +23,10 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 
 export default function Checkout() {
+    const { state } = useLocation();
+    const selectedPlan = state?.plan;
+    const selectedPrice = state?.price;
+
     const [name, setName] = useState("");
     const [cardNumber, setCardNumber] = useState("");
     const [cvv, setCvv] = useState("");
@@ -34,8 +39,15 @@ export default function Checkout() {
     const handleSubmit = () => {
         alert("Purchase successful! Thank you for your order.");
     };
+
     return (
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md space-y-6">
+            {selectedPlan && (
+                <div className="rounded-xl border p-4 bg-gray-50">
+                    <p className="text-sm text-muted-foreground">Selected plan</p>
+                    <p className="text-xl font-bold">{selectedPlan} — ${selectedPrice}/mo</p>
+                </div>
+            )}
             <form>
                 <FieldGroup>
                     <FieldSet>
