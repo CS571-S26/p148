@@ -24,6 +24,9 @@
 }
 
 .site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   color: var(--text-h);
   font-size: 1.15rem;
   font-weight: 900;
@@ -31,15 +34,13 @@
   text-decoration: none;
 }
 
-.site-logo::before {
-  content: "";
-  display: inline-block;
-  width: 0.72rem;
-  height: 0.72rem;
-  margin-right: 0.5rem;
+.site-logo__image {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid oklch(1 0 0 / 0.8);
   border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 0 5px oklch(0.72 0.14 72 / 0.14);
+  box-shadow: 0 6px 16px oklch(0.2 0.025 72 / 0.16);
+  object-fit: cover;
 }
 
 .site-nav__links {

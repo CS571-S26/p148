@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
 
 export default function Navbar() {
     const getLinkClassName = ({ isActive }) => isActive ? "nav-link active-link" : "nav-link";
@@ -6,7 +7,10 @@ export default function Navbar() {
     return (
         <nav className="site-nav" aria-label="Main navigation">
             <div className="site-nav__inner">
-                <NavLink to="/" className="site-logo">Fitness Monger</NavLink>
+                <NavLink to="/" className="site-logo">
+                    <img src={logo} alt="" className="site-logo__image" />
+                    <span>Fitness Monger</span>
+                </NavLink>
                 <div className="site-nav__links">
                     <NavLink to="/" className={getLinkClassName}>Home</NavLink>
                     <NavLink to="/plans" className={getLinkClassName}>Plans</NavLink>
