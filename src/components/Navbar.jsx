@@ -1,13 +1,20 @@
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
+    const getLinkClassName = ({ isActive }) => isActive ? "nav-link active-link" : "nav-link";
+
     return (
-        <nav className="flex items-center justify-center gap-6 p-6 bg-gray-100">
-            <NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}>Home</NavLink>
-            <NavLink to="/plans" className={({ isActive }) => isActive ? "active-link" : ""}>Plans</NavLink>
-            <NavLink to="/classes" className={({ isActive }) => isActive ? "active-link" : ""}>Classes</NavLink>
-            <NavLink to="/trainers" className={({ isActive }) => isActive ? "active-link" : ""}>Trainers</NavLink>
-            <NavLink to="/checkout" className={({ isActive }) => isActive ? "active-link" : ""}>Checkout</NavLink>
+        <nav className="site-nav" aria-label="Main navigation">
+            <div className="site-nav__inner">
+                <NavLink to="/" className="site-logo">Fitness Monger</NavLink>
+                <div className="site-nav__links">
+                    <NavLink to="/" className={getLinkClassName}>Home</NavLink>
+                    <NavLink to="/plans" className={getLinkClassName}>Plans</NavLink>
+                    <NavLink to="/classes" className={getLinkClassName}>Classes</NavLink>
+                    <NavLink to="/trainers" className={getLinkClassName}>Trainers</NavLink>
+                    <NavLink to="/checkout" className={getLinkClassName}>Checkout</NavLink>
+                </div>
+            </div>
         </nav>
     );
 }

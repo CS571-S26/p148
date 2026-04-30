@@ -10,14 +10,16 @@ import Trainers from './Trainers';
 function App() {
     return (
         <HashRouter>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/plans" element={<Plans />} />
-                <Route path="/classes" element={<Classes />} />
-                <Route path="/trainers" element={<Trainers />} />
-                <Route path="/checkout" element={<Checkout />} />
-            </Routes>
+            <div className="site-shell">
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/plans" element={<Plans />} />
+                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/trainers" element={<Trainers />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                </Routes>
+            </div>
         </HashRouter>
     );
 }
