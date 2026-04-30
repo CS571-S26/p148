@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import FeatureCard from './FeatureCard';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const features = [
     {
@@ -65,15 +65,12 @@ export default function Home() {
                 </div>
                 <div className="grid gap-6 sm:grid-cols-3">
                     {features.map((f, index) => (
-                        <Card key={f.title} className="fitness-card rounded-3xl">
-                            <CardHeader>
-                                <span className="feature-number">{String(index + 1).padStart(2, "0")}</span>
-                                <CardTitle>{f.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <CardDescription>{f.description}</CardDescription>
-                            </CardContent>
-                        </Card>
+                        <FeatureCard
+                            key={f.title}
+                            index={index}
+                            title={f.title}
+                            description={f.description}
+                        />
                     ))}
                 </div>
             </section>

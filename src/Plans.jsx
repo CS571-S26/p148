@@ -1,3 +1,4 @@
+import PageHeader from './PageHeader';
 import PlanCard from './PlanCard';
 
 const plans = [
@@ -42,12 +43,10 @@ export default function Plans() {
     return (
         <main className="page-section">
             <div>
-                <div className="page-header">
-                    <h1>Membership Plans</h1>
-                    <p className="page-lede">
-                        Choose the plan that fits your goals.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Membership Plans"
+                    lede="Choose the plan that fits your goals."
+                />
                 <div className="grid gap-6 sm:grid-cols-3">
                     {plans.map((plan) => (
                         <PlanCard key={plan.name} {...plan} />

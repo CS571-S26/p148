@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import CategoryFilter from './CategoryFilter';
 import ClassCard from './ClassCard';
-import { Button } from '@/components/ui/button';
+import PageHeader from './PageHeader';
 
 const classes = [
     { id: 1, name: "Morning Burn",            trainer: "Justin", day: "Monday",    time: "6:00 AM",  duration: "45 min", category: "HIIT" },
@@ -25,24 +26,16 @@ export default function Classes() {
     return (
         <main className="page-section">
             <div>
-                <div className="page-header">
-                    <h1>Class Schedule</h1>
-                    <p className="page-lede">
-                        Find a class that fits your routine.
-                    </p>
-                </div>
+                <PageHeader
+                    title="Class Schedule"
+                    lede="Find a class that fits your routine."
+                />
 
-                <div className="mb-8 flex flex-wrap justify-center gap-3">
-                    {categories.map((cat) => (
-                        <Button
-                            key={cat}
-                            variant={activeCategory === cat ? "default" : "outline"}
-                            onClick={() => setActiveCategory(cat)}
-                        >
-                            {cat}
-                        </Button>
-                    ))}
-                </div>
+                <CategoryFilter
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onChange={setActiveCategory}
+                />
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {filtered.map((cls) => (

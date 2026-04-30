@@ -1,11 +1,5 @@
-import { Button } from "./components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import PageHeader from "./PageHeader"
+import TrainerCard from "./TrainerCard"
 import { useState } from "react"
 
 const trainers = [
@@ -45,41 +39,19 @@ export default function Trainers() {
     return (
     <main className="page-section">
       <div>
-        <div className="page-header">
-          <h1>Our Trainers</h1>
-          <p className="page-lede">
-            Meet specialists who keep your workouts focused, safe, and measurable.
-          </p>
-        </div>
+        <PageHeader
+          title="Our Trainers"
+          lede="Meet specialists who keep your workouts focused, safe, and measurable."
+        />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {trainers.map((trainer) => (
-            <Card key={trainer.id} 
-            className={`fitness-card rounded-3xl ${
-            expanded === trainer.id ? "featured-card border-2" : ""}`}
-            >
-              <CardHeader>
-                <span className="pill">{trainer.specialty}</span>
-                <CardTitle>{trainer.name}</CardTitle>
-                <CardDescription>Coach, age {trainer.age}</CardDescription>
-              </CardHeader>
-
-              <CardContent className="flex flex-col gap-3">
-                {expanded === trainer.id && (
-                  <p className="text-sm text-muted-foreground">
-                    {trainer.description}
-                  </p>
-                )}
-
-                <Button
-                  variant="default"
-                  className="w-full"
-                  onClick={() => toggleCard(trainer.id)}
-                >
-                  {expanded === trainer.id ? "Show Less" : "View More"}
-                </Button>
-              </CardContent>
-            </Card>
+            <TrainerCard
+              key={trainer.id}
+              trainer={trainer}
+              isExpanded={expanded === trainer.id}
+              onToggle={() => toggleCard(trainer.id)}
+            />
           ))}
         </div>
       </div>

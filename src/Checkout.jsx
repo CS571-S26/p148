@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import PageHeader from "./PageHeader";
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -43,12 +44,10 @@ export default function Checkout() {
 
     return (
         <main className="page-section">
-            <div className="page-header">
-                <h1>Complete Membership</h1>
-                <p className="page-lede">
-                    Confirm your plan and enter payment details.
-                </p>
-            </div>
+            <PageHeader
+                title="Complete Membership"
+                lede="Confirm your plan and enter payment details."
+            />
             <div className="checkout-panel fitness-card mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-3xl p-6 sm:p-8">
                 {selectedPlan && (
                     <div className="rounded-2xl border bg-card p-5">
