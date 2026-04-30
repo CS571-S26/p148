@@ -21,21 +21,53 @@ export default function Home() {
     const navigate = useNavigate();
 
     return (
-        <main className="px-6 py-10 space-y-16">
-            <section className="text-center max-w-2xl mx-auto space-y-4">
-                <h1 className="text-5xl font-bold">Train Smarter with Fitness Monger</h1>
-                <p className="text-lg text-muted-foreground">
-                    Expert trainers, flexible schedules, and membership plans built around you.
-                </p>
-                <Button size="lg" onClick={() => navigate('/plans')}>View Plans</Button>
+        <main>
+            <section className="page-section">
+                <div className="hero-panel">
+                    <div className="hero-panel__content">
+                        <h1>Train Smarter with Fitness Monger</h1>
+                        <p className="page-lede">
+                            Expert trainers, flexible schedules, and membership plans built around you.
+                        </p>
+                        <div className="hero-actions">
+                            <Button size="lg" className="hero-button-primary" onClick={() => navigate('/plans')}>View Plans</Button>
+                            <Button size="lg" className="hero-button-secondary" variant="outline" onClick={() => navigate('/classes')}>Browse Classes</Button>
+                        </div>
+                    </div>
+                    <div className="hero-panel__visual" aria-label="Membership path">
+                        <div className="hero-steps">
+                            <p className="hero-steps__label">Start here</p>
+                            <ol>
+                                <li>
+                                    <span>1</span>
+                                    Compare plans without hidden details.
+                                </li>
+                                <li>
+                                    <span>2</span>
+                                    Pick a class time that fits your week.
+                                </li>
+                                <li>
+                                    <span>3</span>
+                                    Meet coaches before you commit.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section className="max-w-5xl mx-auto">
-                <h2 className="text-2xl font-semibold text-center mb-8">Why Fitness Monger?</h2>
+            <section className="page-section pt-0">
+                <div className="page-header">
+                    <h2>Built for consistent progress</h2>
+                    <p className="page-lede">
+                        Clear programs, reliable coaching, and enough schedule flexibility to keep you moving.
+                    </p>
+                </div>
                 <div className="grid gap-6 sm:grid-cols-3">
-                    {features.map((f) => (
-                        <Card key={f.title} className="rounded-2xl shadow-md">
+                    {features.map((f, index) => (
+                        <Card key={f.title} className="fitness-card rounded-3xl">
                             <CardHeader>
+                                <span className="feature-number">{String(index + 1).padStart(2, "0")}</span>
                                 <CardTitle>{f.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
