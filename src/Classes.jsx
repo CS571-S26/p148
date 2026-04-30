@@ -23,14 +23,16 @@ export default function Classes() {
         : classes.filter((c) => c.category === activeCategory);
 
     return (
-        <main className="px-6 py-10">
-            <div className="max-w-6xl mx-auto">
-                <h1 className="text-4xl font-bold text-center mb-2">Class Schedule</h1>
-                <p className="text-center text-muted-foreground mb-8">
-                    Find a class that fits your routine.
-                </p>
+        <main className="page-section">
+            <div>
+                <div className="page-header">
+                    <h1>Class Schedule</h1>
+                    <p className="page-lede">
+                        Find a class that fits your routine.
+                    </p>
+                </div>
 
-                <div className="flex gap-3 justify-center mb-8">
+                <div className="mb-8 flex flex-wrap justify-center gap-3">
                     {categories.map((cat) => (
                         <Button
                             key={cat}

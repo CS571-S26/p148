@@ -2,16 +2,21 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 export default function ClassCard({ name, trainer, day, time, duration, category }) {
     return (
-        <Card className="rounded-2xl shadow-md">
+        <Card className="fitness-card rounded-3xl">
             <CardHeader>
+                <span className="pill">{category}</span>
                 <CardTitle>{name}</CardTitle>
-                <CardDescription>{category}</CardDescription>
+                <CardDescription>{day} at {time}</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-1 text-sm text-muted-foreground">
-                <p><strong className="text-foreground">Trainer:</strong> {trainer}</p>
-                <p><strong className="text-foreground">Day:</strong> {day}</p>
-                <p><strong className="text-foreground">Time:</strong> {time}</p>
-                <p><strong className="text-foreground">Duration:</strong> {duration}</p>
+            <CardContent className="detail-list text-sm">
+                <p className="detail-row">
+                    <span className="detail-label">Trainer</span>
+                    <span>{trainer}</span>
+                </p>
+                <p className="detail-row">
+                    <span className="detail-label">Duration</span>
+                    <span>{duration}</span>
+                </p>
             </CardContent>
         </Card>
     );
