@@ -40,12 +40,14 @@ const plans = [
 
 export default function Plans() {
     return (
-        <main className="px-6 py-10">
-            <div className="max-w-5xl mx-auto">
-                <h1 className="text-4xl font-bold text-center mb-2">Membership Plans</h1>
-                <p className="text-center text-muted-foreground mb-10">
-                    Choose the plan that fits your goals.
-                </p>
+        <main className="page-section">
+            <div>
+                <div className="page-header">
+                    <h1>Membership Plans</h1>
+                    <p className="page-lede">
+                        Choose the plan that fits your goals.
+                    </p>
+                </div>
                 <div className="grid gap-6 sm:grid-cols-3">
                     {plans.map((plan) => (
                         <PlanCard key={plan.name} {...plan} />

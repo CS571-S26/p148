@@ -6,24 +6,20 @@ export default function PlanCard({ name, price, description, features, highlight
     const navigate = useNavigate();
 
     return (
-        <Card className={`rounded-2xl shadow-md flex flex-col ${highlighted ? "border-2 border-black" : ""}`}>
+        <Card className={`fitness-card flex flex-col rounded-3xl ${highlighted ? "featured-card border-2" : ""}`}>
             <CardHeader>
-                {highlighted && (
-                    <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1">
-                        Most Popular
-                    </span>
-                )}
+                {highlighted && <span className="pill">Most Popular</span>}
                 <CardTitle>{name}</CardTitle>
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
-            <CardContent className="flex-1 space-y-4">
-                <p className="text-3xl font-bold">
+            <CardContent className="flex flex-1 flex-col gap-4">
+                <p className="plan-price">
                     ${price}
-                    <span className="text-base font-normal text-muted-foreground">/mo</span>
+                    <span>/mo</span>
                 </p>
-                <ul className="space-y-1">
+                <ul className="check-list">
                     {features.map((f) => (
-                        <li key={f} className="text-sm text-muted-foreground">• {f}</li>
+                        <li key={f} className="text-sm text-muted-foreground">{f}</li>
                     ))}
                 </ul>
             </CardContent>
